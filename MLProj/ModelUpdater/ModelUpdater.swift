@@ -1,10 +1,3 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Manager responsible for updating and using the correct Drawing Classifier at runtime.
-*/
-
 import CoreML
 #if os(iOS)
 import CreateML
@@ -19,12 +12,9 @@ struct UpdateInput {
     let money: Double
 }
 
-/// Class that handles predictions and updating of UpdatableDrawingClassifier model.
 struct ModelUpdater {
     // MARK: - Private Type Properties
-    /// The updated regressor model.
     private static var updatedRegressor: MyRegressor? = nil
-    /// The default regressor model.
     private static var defaultRegressor: MyRegressor? {
         guard let regressor = createModel(first: true) else {
             print("model error")
